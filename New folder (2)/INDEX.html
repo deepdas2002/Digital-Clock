@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.js">
+</head>
+<STYle>
+
+
+
+
+*{
+    margin: 00;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: 100vh;
+    min-height: 100vh;
+    background: rgb(16, 16, 16);
+  
+}
+#time{
+    display: flex;
+    gap: 50px;
+     color:deeppink;
+  
+}
+
+
+
+
+
+
+#time div{
+
+  
+    text-align: center;
+    font-weight: 500;
+
+    font-size: 2.5em;
+} 
+#time .ap{
+
+    
+    font: 2em;
+    transform: translateX(-8px);
+    position:absolute;
+      
+    left: 50pc;
+    top: 200px;
+   
+}
+
+#hr{
+     color: cornflowerblue; 
+    position:absolute;
+      
+    left: 20pc;
+    top: 200px;
+
+}
+#min{
+     color: rgb(213, 198, 28); 
+    position:absolute;
+      
+    left: 30pc;
+    top: 200px;
+}
+#sec{
+ color: springgreen; 
+    position:absolute;
+      
+    left: 40pc;
+    top: 200px;
+}
+ 
+<style>
+
+
+
+
+
+
+
+
+
+    body{
+        background-color: black;
+    }
+    .ml9 {
+  position: relative;
+  font-weight: 200;
+  font-size: 4em;
+  color: aqua;
+}
+
+.ml9 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml9 .letter {
+  transform-origin: 50% 100%;
+  display: inline-block;
+  line-height: 1em;
+}
+</STYle>
+
+
+
+<div id="time">
+    <div class ="circle">
+      
+        
+        <div id="hr">00</div>
+    </div>
+
+
+      
+
+    <div class="circle">
+ 
+        
+        <div id="min">00</div>
+    </div>
+
+
+    <div class="circle">
+
+
+
+          
+   
+        
+        <div id="sec">00 </div>
+    </div>
+
+    <div class="ap">
+
+        <div id="ampm">AM</div>
+    </div>
+
+    
+</div>
+
+
+    <h1 class="ml9">
+
+        <span class="text-wrapper">
+          <span class="letters">DEEP DAS ADHIKARI </span>
+          
+        </span>
+      </h1>
+
+
+
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+<script>
+    // Wrap every letter in a span
+var textWrapper = document.querySelector('.ml9 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml9 .letter',
+    scale: [0, 1],
+    duration: 1500,
+    elasticity: 600,
+    delay: (el, i) => 200 * (i+1)
+  }).add({
+    targets: '.ml9',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   timer
+
+
+
+
+
+setInterval(()=>{
+    let hr = document.getElementById('hr');
+
+let min = document.getElementById('min');
+
+let sec = document.getElementById('sec');
+
+let ampm = document.getElementById('ampm');
+
+let h = new Date().getHours();
+let m = new Date().getMinutes();
+let s = new Date().getSeconds();
+
+let am = h>=12 ? ": PM":": AM";
+
+if(h>12){
+h= h-12;
+}
+//adding 0 before the single digit;
+h=(h<10)? "0"+ h :h;
+
+m=(m<10)? "0"+ m :m;
+s=(s<10)? "0"+ s :s;
+hr.innerHTML=h;
+
+min.innerHTML=m;
+
+sec.innerHTML=s;
+ampm.innerHTML=am;
+
+
+
+
+
+
+})
+
+
+
+</script>
+
+</html>
